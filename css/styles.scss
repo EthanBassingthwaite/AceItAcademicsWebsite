@@ -1,227 +1,81 @@
-.growth-bar {
-  padding: 0.25rem;
-  width: 100%;
-  background-color: var(--object-border-color);
-}
-
-.growth-bar-indicator {
-  position: absolute;
-  height: 1.5rem;
-  width: 1.5rem;
-  background-color: rgb(59, 59, 7);
-  left: 0;
-  transition: 1s ease;
-  border-radius: 0.1rem;
-}
-
-.viewed #first-bar .growth-bar-indicator {
-  left: calc(100% - 1.5rem);
-  background-color: gold;
-}
-
-.viewed #second-bar .growth-bar-indicator {
-  transition-delay: 1.2s;
-  left: calc(100% - 1.5rem);
-  background-color: gold;
-}
-
-.viewed #third-bar .growth-bar-indicator {
-  transition-delay: 2.4s;
-  left: calc(100% - 1.5rem);
-  background-color: gold;
-}
-
-/* #region growth bar number animation */
-@property --num {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-.changing-number {
-  --num: var(--start, 0);
-  transition: --num 1s ease-in-out var(--delay, 0s);
-  counter-set: num var(--num);
-}
-
-.changing-number::before {
-  content: counter(num);
-}
-
-.viewed .changing-number {
-  --num: var(--target, 100);
-}
-
-@property --percent {
-  syntax: "<number>";
-  initial-value: 0;
-  inherits: false;
-}
-@property --temp {
-  syntax: "<number>";
-  initial-value: 0;
-  inherits: false;
-}
-@property --v1 {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-@property --v2 {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-.changing-number-percent {
-  --percent: var(--start, 0);
-  font: monospace;
-  transition: --percent 1s ease-in-out var(--delay, 0s);
-  --temp: calc(var(--percent));
-  --v1: max(var(--temp) - 0.5, 0);
-  --v2: max((var(--temp) - var(--v1)) * 100, 0);
-  /*--v2: max((var(--temp) - var(--v1)) * 100  - 0.5, 0);*/
-  counter-reset: v1 var(--v1) v2 var(--v2);
-}
-
-.changing-number-percent::before {
-  content: counter(v1) "." counter(v2, decimal-leading-zero) "%";
-}
-
-.viewed .changing-number-percent {
-  --percent: var(--target, 1);
-}
-
-#navbar {
-  font-size: large;
-  width: 95vw;
-  position: absolute;
-  top: 0;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0);
-  z-index: 10;
-  padding-right: calc(100vw - width);
-}
-
-/* Navbar links */
-#navbar a {
-  float: right;
-  display: block;
-  color: var(--body-text-color);
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
-#navbar a:hover {
-  color: firebrick;
-}
-
-#navbar a:nth-child(1) {
-  color: chocolate;
-}
-
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: 0;
-  color: var(--body-text-color);
-  width: 100%;
-  height: 25%;
-  padding: 0rem;
-}
-
-#hero-video {
-  /*position: fixed; */
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  filter: brightness(50%);
-}
-
-#hero-landing-chevron {
-  position: absolute;
-  width: 10vw;
-  height: 5vw;
-  bottom: 10%;
-  left: 45vw;
-  transition: 0.5s;
-  opacity: 0;
-}
-
-.hero-landing:hover #hero-landing-chevron {
-  opacity: 0.7;
-}
+@use 'results';
+@use 'navbar';
+@use 'herolanding';
 
 /* Variables */
 :root {
-  --body-text-color: #f9f9f9;
-  --body-background-color: #143571;
-  --object-border-color: #2d75f6;
-  --focus-color: gold;
-  --default-font-family: "Lucida Console", monospace;
+    --body-text-color: #f9f9f9;
+    --body-background-color: #143571;
+    --object-border-color: #2d75f6;
+    --focus-color: gold;
+    --default-font-family: 'Lucida Console', monospace;
+
+
 }
 
 /* Adjusting the button hover state manually since it's not a variable */
 .btn-primary {
   --bs-btn-bg: var(--object-border-color);
   --bs-btn-border-color: var(--object-border-color);
-  --bs-btn-hover-bg: var(--body-background-color);
+  --bs-btn-hover-bg: var(--body-background-color); 
 }
 
 /* Remove icon */
 .accordion-button::after {
-  display: none !important;
+    display: none !important;
 }
 
 .navbar-absolute {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
+
 .accordion {
-  /* colors for interior when open */
-  --bs-accordion-bg: var(--body-background-color);
-  --bs-accordion-border-color: var(--body-text-color);
-  --bs-accordion-color: var(--body-text-color);
-  /* Top segment when open */
-  --bs-accordion-active-bg: var(--body-background-color);
-  --bs-accordion-active-color: var(--body-text-color);
-  /*colors when closed */
-  --bs-accordion-btn-bg: var(--body-background-color);
-  --bs-accordion-btn-color: var(--body-text-color);
+    /* colors for interior when open */
+    --bs-accordion-bg: var(--body-background-color); 
+    --bs-accordion-border-color: var(--body-text-color); 
+    --bs-accordion-color: var(--body-text-color);
+
+    /* Top segment when open */
+    --bs-accordion-active-bg: var(--body-background-color); 
+    --bs-accordion-active-color: var(--body-text-color);
+    
+    /*colors when closed */
+    --bs-accordion-btn-bg: var(--body-background-color);
+    --bs-accordion-btn-color: var(--body-text-color); 
+    
+    
 }
 
 /* Optional: Remove the blue glow/outline on click */
 .accordion-button:focus {
-  box-shadow: none;
-  border-color: var(--body-text-color);
+    box-shadow: none;
+    border-color: var(--body-text-color);
 }
 
 .focus-text {
-  color: var(--focus-color);
+    color: var(--focus-color);
 }
 
 .section-container {
-  margin: 8rem 0rem;
+    margin: 8rem 0rem;
 }
+
+
 
 /* #region Default HTML Elements */
 body {
-  font-family: var(--default-font-family);
-  line-height: 1.6;
+  font-family: var(--default-font-family); 
+  line-height: 1.6; 
   margin: 0;
   padding: 0;
-  background-color: var(--body-background-color);
+  background-color: var(--body-background-color); 
 }
 
-p, h1 {
+p,h1 {
   color: var(--body-text-color);
   /*margin: .5rem 1rem 0rem 1rem; 
   padding: .5rem;*/
@@ -237,17 +91,17 @@ li {
 }
 
 ul, ol {
-  margin: 0 0 1rem 1rem;
+  margin: 0 0 1rem 1rem; 
   padding: 0;
 }
 
 a {
-  color: #0066cc;
-  text-decoration: none;
+  color: #0066cc; 
+  text-decoration: none; 
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline; 
 }
 
 a.no-underline {
@@ -257,56 +111,67 @@ a.no-underline {
 }
 
 /* #endregion */
+
 /* #region Section Dividers */
 .section {
-  text-align: center;
-  margin: 7% 5rem 7% 5rem;
+    text-align: center;
+    margin: 7% 5rem 7% 5rem;
 }
 
 .section.text {
-  background-color: var(--object-border-color);
-  border-radius: 50px;
+    background-color: var(--object-border-color);
+    border-radius: 50px;
 }
-
 /* #endregion */
+
+
+
+
+
+
 /* #region Grouped Images */
 .image-group {
   /*display: inline-block;
   /*flex-wrap: wrap;*/
   text-align: center;
-  padding: 0 0.1vw;
+  padding: 0 .1vw;
+  
 }
 
 /* #region Figure elements */
 figcaption {
-  color: var(--body-text-color);
+    color: var(--body-text-color)
 }
 
-.grid-figure {
-  display: inline-block;
-  width: 20rem;
-  /*height: 15vw;*/
-  margin: auto;
-  padding: 1vw;
+.grid-figure{
+    display: inline-block;
+    width: 20rem;
+    /*height: 15vw;*/
+    margin: auto;
+    padding: 1vw;
 }
+
 
 .grid-image {
-  width: 15vw;
-  height: 15vw;
-  margin: auto;
-  padding: 1vw;
-  border-radius: 30px;
-}
+    width: 15vw;
+    height: 15vw;
+    margin: auto;
+    padding: 1vw;
+    border-radius: 30px;
 
+}
 /* #endregion */
+
 /* #region tutoring services images */
+
 .service-overview-grid-image {
   filter: brightness(60%);
   overflow: hidden;
   background: none;
+
 }
 
-/* #region Service overview images */
+  /* #region Service overview images */
 .services-overview-grid .col:nth-child(1) .service-overview-grid-image {
   background: url(../images/Tutoring-Image-Placeholder.jpg);
   background-size: cover;
@@ -321,38 +186,43 @@ figcaption {
 
 .services-overview-grid .col:nth-child(3) .service-overview-grid-image {
   background: url(../images/essay-writing-placeholder.jpg);
-  background-size: cover;
+    background-size: cover;
   background-position: center;
 }
 
 .services-overview-grid .col:nth-child(4) .service-overview-grid-image {
   background: url(../images/homework-help-placeholder.jpg);
-  background-size: cover;
+    background-size: cover;
   background-position: center;
 }
 
 .services-overview-grid .col:nth-child(5) .service-overview-grid-image {
   background: url(../images/interview-prep-placeholder.jpg);
-  background-size: cover;
+    background-size: cover;
   background-position: center;
 }
 
+
+
 /* #endregion */
-.square-image-holder:hover .square-image-title-text {
-  opacity: 0;
-  top: 10%;
-  left: 20%;
-  transform: translate(-20%, -20%);
-}
+  .square-image-holder:hover .square-image-title-text {
+    opacity: 0;
+    top: 10%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+  }
 
-.square-image-holder:hover .square-image-body-text {
-  opacity: 1;
-  top: 50%;
-}
+  .square-image-holder:hover .square-image-body-text {
+    opacity: 1;
+    top: 50%;
+  }
 
-.square-image-holder:hover .service-overview-grid-image {
-  filter: brightness(70%);
-}
+  .square-image-holder:hover .service-overview-grid-image {
+    filter: brightness(70%);
+  }
+
+
+
 
 .square-image-title-text {
   color: var(--body-text-color);
@@ -380,8 +250,13 @@ figcaption {
   transition: opacity 0.5s ease;
 }
 
+
+
 /* #endregion */
+
 /* #region vertical Tutoring Images */
+
+
 .vertical-tutoring-image {
   filter: brightness(60%);
   overflow: hidden;
@@ -398,7 +273,8 @@ figcaption {
   opacity: 1;
 }
 
-/* #region Individual vertical Tutoring Images */
+  /* #region Individual vertical Tutoring Images */
+
 .who-we-help .col:nth-child(1) .vertical-tutoring-image {
   background: url(../images/Elem-Tutoring-Placeholder.jpg);
   background-size: cover;
@@ -423,10 +299,14 @@ figcaption {
   background-position: center;
 }
 
+
+
 /* #endregion */
+
 .vertical-image-holder:hover .vertical-tutoring-image {
   filter: brightness(70%);
 }
+
 
 .ratio-golden {
   --bs-aspect-ratio: 161%;
@@ -458,7 +338,9 @@ figcaption {
   transition: opacity 0.5s ease;
 }
 
+
 /* #endregion */
+
 /* #region Expanding Images */
 /*.expanding-box-container {
   display: flex;  
@@ -466,10 +348,12 @@ figcaption {
   justify-content: space-evenly;
   width: 90vw;
 }*/
+
 .expanding-image {
   /*darkening these images is a bit harder https://stackoverflow.com/questions/20039765/how-to-apply-a-css-filter-to-a-background-image */
   height: 30rem;
   width: 100%;
+
   position: relative;
   align-items: center;
   transition: width 0.5s;
@@ -485,8 +369,8 @@ figcaption {
   background: url(../images/test-prep-specific-test-placeholder.jpeg);
   background-size: cover;
   background-position: center;
-}
 
+}
 /* use nth child to set specific images later */
 /*.expanding-image-background:nth-child(1) {
   border-radius: 15px 0px 0px 15px;
@@ -502,6 +386,7 @@ figcaption {
 .expanding-image-background:nth-child(5) {
   border-radius: 0px 15px 15px 0px;
 }*/
+
 .expanding-image-text {
   margin: 0;
   position: absolute;
@@ -528,23 +413,34 @@ figcaption {
 }
 
 .expanding-image:hover .expanding-image-text p {
-  transition-delay: 0.3s;
+    transition-delay: 0.3s;
+
   opacity: 1;
 }
+/* #endregion */
 
 /* #endregion */
-/* #endregion */
+
 /* #region Results Sliders */
+
+
+
 /* #endregion */
+
+
 /* #endregion */
+
+
 /* #region Footer */
 .footer-link {
   display: inline-block;
 }
-
 /* #endregion */
+
+
+
 /*
 * {
   outline: 1px solid red !important;
 }
-/**//*# sourceMappingURL=styles.css.map */
+/**/
