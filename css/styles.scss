@@ -13,6 +13,7 @@
 
 }
 
+
 /* Adjusting the button hover state manually since it's not a variable */
 .btn-primary {
   --bs-btn-bg: var(--object-border-color);
@@ -60,9 +61,7 @@
     color: var(--focus-color);
 }
 
-.section-container {
-    margin: 8rem 0rem;
-}
+
 
 
 
@@ -72,8 +71,18 @@ body {
   line-height: 1.6; 
   margin: 0;
   padding: 0;
-  background-color: var(--body-background-color); 
+
+  background-color: var(--body-background-color);
+  background-image:
+    radial-gradient(circle at 15% 20%, #2d75f6aa 0%, rgba(255, 255, 255, 0) 20%),
+    radial-gradient(circle at 40% 80%, #2d75f6aa 0%, rgba(255, 255, 255, 0) 15%),
+    radial-gradient(circle at 80% 30%, #2d75f6aa 0%, rgba(255, 255, 255, 0) 25%);
+  background-size: cover; 
+  background-attachment: fixed;
+  background-position: center;
 }
+
+
 
 p,h1 {
   color: var(--body-text-color);
@@ -113,6 +122,10 @@ a.no-underline {
 /* #endregion */
 
 /* #region Section Dividers */
+.section-container {
+  margin: 8rem 0rem;
+  
+}
 .section {
     text-align: center;
     margin: 7% 5rem 7% 5rem;

@@ -96,7 +96,7 @@
   position: absolute;
   top: 0;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: --body-background-color;
   z-index: 10;
   padding-right: calc(100vw - width);
 }
@@ -208,10 +208,6 @@
   color: var(--focus-color);
 }
 
-.section-container {
-  margin: 8rem 0rem;
-}
-
 /* #region Default HTML Elements */
 body {
   font-family: var(--default-font-family);
@@ -219,6 +215,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--body-background-color);
+  background-image: radial-gradient(circle at 15% 20%, rgba(45, 117, 246, 0.6666666667) 0%, rgba(255, 255, 255, 0) 20%), radial-gradient(circle at 40% 80%, rgba(45, 117, 246, 0.6666666667) 0%, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 80% 30%, rgba(45, 117, 246, 0.6666666667) 0%, rgba(255, 255, 255, 0) 25%);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 p, h1 {
@@ -258,6 +258,10 @@ a.no-underline {
 
 /* #endregion */
 /* #region Section Dividers */
+.section-container {
+  margin: 8rem 0rem;
+}
+
 .section {
   text-align: center;
   margin: 7% 5rem 7% 5rem;
