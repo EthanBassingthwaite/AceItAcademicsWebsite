@@ -221,7 +221,7 @@ body {
   background-position: center;
 }
 
-p, h1 {
+p, h1, address {
   color: var(--body-text-color);
   /*margin: .5rem 1rem 0rem 1rem; 
   padding: .5rem;*/
@@ -273,6 +273,20 @@ a.no-underline {
 }
 
 /* #endregion */
+.button-background {
+  border: 2px solid #f9f9f9;
+  width: 10rem;
+  border-radius: 4px;
+  padding-top: 0.7rem;
+}
+.button-background a {
+  text-decoration: none;
+}
+
+.button-background:hover {
+  background-color: aqua;
+}
+
 /* #region Grouped Images */
 .image-group {
   /*display: inline-block;
@@ -478,9 +492,9 @@ figcaption {
   align-items: center;
   transition: width 0.5s;
   /*flex-shrink: 1;*/
-  flex: 1 1 0;
+  /*flex: 1 1 0;*/
   text-align: center;
-  transition: all 0.5s ease;
+  /*transition: all 0.5s ease;*/
 }
 
 .expanding-image-background {
@@ -489,6 +503,7 @@ figcaption {
   background: url(../images/test-prep-specific-test-placeholder.jpeg);
   background-size: cover;
   background-position: center;
+  filter: brightness(60%);
 }
 
 /* use nth child to set specific images later */
@@ -509,33 +524,70 @@ figcaption {
 .expanding-image-text {
   margin: 0;
   position: absolute;
+  width: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.expanding-image-text h3 p {
-  color: var(--body-text-color);
-  text-align: center;
+@media (max-width: 767px) {
+  .expanding-image-text h3 {
+    transform: translate(0%, -12rem);
+  }
+  .expanding-image-text p {
+    transform: translate(0%, 2rem);
+  }
 }
-
-.expanding-image-text p {
-  opacity: 0;
+@media (min-width: 768px) {
+  .expanding-image {
+    /*darkening these images is a bit harder https://stackoverflow.com/questions/20039765/how-to-apply-a-css-filter-to-a-background-image */
+    height: 30rem;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    transition: width 0.5s;
+    /*flex-shrink: 1;*/
+    flex: 1 1 0;
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+  .expanding-image-text {
+    margin: 0;
+    transition: all 0.6s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .expanding-image-text h3 p {
+    color: var(--body-text-color);
+    text-align: center;
+  }
+  .expanding-image-text p {
+    opacity: 0;
+  }
+  .expanding-image:hover {
+    flex: 7 1 0;
+  }
+  .expanding-image:hover .expanding-image-text h3 {
+    opacity: 0;
+  }
+  .expanding-image:hover .expanding-image-text p {
+    transition-delay: 0.3s;
+    opacity: 1;
+  }
+  .expanding-image .expanding-image-text .button-background {
+    opacity: 0;
+  }
+  .expanding-image:hover .expanding-image-text .button-background {
+    transition-delay: 0.3s;
+    opacity: 1;
+  }
+  .expanding-image:hover .expanding-image-text .button-background h3 {
+    transition-delay: 0.3s;
+    opacity: 1;
+  }
 }
-
-.expanding-image:hover {
-  flex: 7 1 0;
-}
-
-.expanding-image:hover .expanding-image-text h3 {
-  opacity: 0;
-}
-
-.expanding-image:hover .expanding-image-text p {
-  transition-delay: 0.3s;
-  opacity: 1;
-}
-
 /* #endregion */
 /* #endregion */
 /* #region Results Sliders */
@@ -547,8 +599,8 @@ figcaption {
 }
 
 /* #endregion */
-/*
 * {
   outline: 1px solid red !important;
 }
+
 /**//*# sourceMappingURL=styles.css.map */

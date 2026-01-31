@@ -39,6 +39,7 @@ Results
         DONE - Slider psuedo animations have been built
             Used js and rebuilt my css to get this working
         TODO - Add in images, with 2 in the middle row (SAT scores and college acceptance) (perhaps desktop view only)
+    Potentially replace some of the images for the bars with quotes from students
 
 TODO - Organize /images/
 
@@ -61,15 +62,29 @@ Emails
 
 TODO Make background not one solid color
 
+TODO - Add a mini-about summary to index below hero landing
+
+TODO - Scale images off of text size
+
+TODO Add a Title to ace it by the numbers sections
 
 Priority
-Test bar redesign
-Ace it by the numbers pedastals 
+
 Add images to banner ads
 Organize images
 Get watermarked images as proper placeholders to stay there until bought
 Double click images on mobile for links
-
+Test bar redesign
+Update footer properly
 
 Done
 Location images
+CTA in index
+
+Summary of tasks
+Index layout
+    Mini about - why you should use us
+    Success numbers
+    Services - Swapped to expanding bars like the current test section
+    ...
+    rest as is
