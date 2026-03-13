@@ -2,89 +2,55 @@
 
 This will be updated later, currently just a todo list
 
+General:
+    Mandatory: 
+        Get non-placeholder images
+        Ask Steven if we need a privacy or terms page for footer
+    Optional:
+        Use website to make better color schema
+
 Navbar
     TODO - Update color scheme
     TODO - Make it close on press of same screen (index-> index makes it close)
 
+Footer:
+    Optional:
+        Update it to include more pages
+
+About:
+    Mandatory:
+        Make it exist (mgiht want to wait until steven gets back on that)
+
 Index.html:
-    TODO - Who we help - perhaps lessen the gutters on mobile
-    TODO - Add a lot more space in between each section, make them feel as though they are their own
-    Services overview: 
-        DONE - Change it so that mobile reveals *only* the small text when clicked (remove title transparency) - Done
-        FAR TODO - Mess around with color scheme and darkening when we have final images
-            Perhaps dark text if white images and increase brightness on hover
-            Perhaps embiggen the text
-    Reword how it works
-        *Temporarily good enough?*
-        Uncertain how to do so, but highlight the free diagnostic exam
-        Ideas
-            FAR TODO - Add a large image for background
-            DONE - Change it into a "Free Diagnostic Exam" section - make everything about that (this feels best to me)
-    Locations
-        FAR TODO - Update to proper addresses
-        TODO - Make the images look kinda decent at minimum
+    Mandatory:
+        Add proper information and text boxes
+        Add links from the blurbs to services subsections (one of the last things to do) 
+        Rework final call to action 
 
 Services
-    MEDIUM FAR TODO - Update the test bar for mobile users
-        Make it a psuedo accordion?
-        Maybe make it a **broader selection screen for other items** 
-            Ie homework help, test prep, all the services?
-            Or at least organize the page in terms of most to least popular services
+    Mandatory:
+        Break it into sub pages and then from there make the option to get there into another dropdown menu
+        Build unique pages for each
+    Test Bar might stop existing once mandatory changes are made
 
 Results
-    Ace it by the numbers or perhaps the bars need a background image or something
-        Needs to highlight the numbers, am thinking a psuedo hero landing but with the numbers
-        TODO - Just need a nicer background or perhaps some 'pedestal'
-    Build the banner ad that was sent
-        DONE - Slider psuedo animations have been built
-            Used js and rebuilt my css to get this working
-        TODO - Add in images, with 2 in the middle row (SAT scores and college acceptance) (perhaps desktop view only)
+    Mandatory:
+        Ace it by the numbers is missing something to make the numbers pop. Add it
+        Add images to the sliders
     Potentially replace some of the images for the bars with quotes from students
 
-TODO - Organize /images/
+Final Checklist:
+    Ensure links are good
+        If Steven desires, have it autofill the airflow form
+    Ensure Fonts are consistent
+    Ensure links to the homepage do not send to /index.html
 
-FAR TODO - Add links from everywhere to everywhere, make it easy to find what you are looking for
-    And then route to contact us page
-        If I am feeling brave this might be a good use for cookies but probably much easier ways
 
-Mess around to make all the sections feel consistent with padding and such
-    Is likely worth it to make all the exterior containers "container-fluid" and then deal with the margins using a div inside of there
-    I personally like doing a {container-fluid {m-5}} where I set the margin in the interior container
+**Order to be worked on**
+1. Make the footer
+2. Make services subpages
 
-Emails 
-    There are open source MIT license software that facillitate sending emails, but sadly for this to work automatically we would need to spend money on some email company
-    HOWEVER Airtable seems to have an api made for web dev
-        Might be easier to use Airtable for everything and have the form update to airtable (if we are already using it)
-            -Will also remove duplicates / avoid potential email clogging from too much form submission
-            -We were planning to only email ourselves
-            -Give 1000 api calls per month for free, more than most paid email senders
-    https://support.airtable.com/docs/prefilling-a-form-via-encoded-url 
 
-TODO Make background not one solid color
 
-TODO - Add a mini-about summary to index below hero landing
 
-TODO - Scale images off of text size
 
-TODO Add a Title to ace it by the numbers sections
-
-Priority
-
-Add images to banner ads
-Organize images
-Get watermarked images as proper placeholders to stay there until bought
-Double click images on mobile for links
-Test bar redesign
-Update footer properly
-
-Done
-Location images
-CTA in index
-
-Summary of tasks
-Index layout
-    Mini about - why you should use us
-    Success numbers
-    Services - Swapped to expanding bars like the current test section
-    ...
-    rest as is

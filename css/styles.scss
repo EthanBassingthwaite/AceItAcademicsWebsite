@@ -1,13 +1,16 @@
 @use 'results';
 @use 'navbar';
 @use 'herolanding';
+@use 'animated';
 
 /* Variables */
 :root {
     --body-text-color: #f9f9f9;
     --body-background-color: #143571;
     --object-border-color: #2d75f6;
-    --focus-color: gold;
+    --focus-color: #D4AF37;/* gold;*/
+
+    --secondary-font-family: 'Lucida Bright', serif;
     --default-font-family: 'Lucida Console', monospace;
 
 }
@@ -79,6 +82,9 @@ body {
   background-size: cover; 
   background-attachment: fixed;
   background-position: center;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--secondary-font-family);
+  }
 }
 
 
@@ -104,12 +110,13 @@ ul, ol {
 }
 
 a {
-  color: #0066cc; 
+  color: #ffffff; 
   text-decoration: none; 
 }
 
 a:hover {
-  text-decoration: underline; 
+  color: var(--focus-color);
+  /*text-decoration: underline; */
 }
 
 a.no-underline {
@@ -122,7 +129,7 @@ a.no-underline {
 
 /* #region Section Dividers */
 .section-container {
-  margin: 8rem 0rem;
+  margin: 7.5rem 0rem;
   
 }
 .section {
@@ -507,9 +514,22 @@ figcaption {
 
 
 /* #region Footer */
+footer {
+  background-color: #133169;
+  text-align: center;
+}
+
 .footer-link {
   display: inline-block;
 }
+.footer-bar {
+  border: none; /* Removes the default border */
+  width: 100vw;
+  height: 1rem; /* Sets the thickness of the bar */
+  background-color: #d5a427; /* Sets the color of the bar (e.g., red) */
+  margin: 1.5rem 0; /* Adds some vertical spacing */
+}
+
 /* #endregion */
 
 

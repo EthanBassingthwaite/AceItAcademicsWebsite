@@ -33,6 +33,7 @@
 }
 
 /* #region growth bar number animation */
+/*
 @property --num {
   syntax: "<integer>";
   initial-value: 0;
@@ -48,9 +49,36 @@
   content: counter(num);
 }
 
-
 .viewed .changing-number { 
   --num: var(--target, 100);
+}
+*/
+
+@property --my-num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --my-num-temp {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.changing-number {
+  --my-num: var(--start, 0);
+  transition: --my-num 1s ease-in-out var(--delay, 0s);
+  --my-num-temp: max(var(--my-num), 0);
+  counter-set: my-num var(--my-num-temp);
+}
+
+.changing-number::before {
+  content: counter(my-num);
+}
+
+.viewed .changing-number { 
+  --my-num: var(--target, 100);
 }
 
 
@@ -78,7 +106,7 @@
 
 .changing-number-percent {
   --percent: var(--start, 0);
-  font: monospace;
+  /*font: monospace;*/
   transition: --percent 1s ease-in-out var(--delay, 0s);
   --temp: calc(var(--percent));
   --v1: max(var(--temp) - 0.5, 0);
