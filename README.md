@@ -47,10 +47,12 @@ Final Checklist:
 
 
 **Order to be worked on**
-1. Make the footer
-2. Make services subpages
+1. Make services subpages
 
 
 
 
 
+Completed:
+Animation overhaul
+Index animation 1st draft

@@ -1,6 +1,3 @@
-// Standard for this project will be to have a parent element that has trigger-observe class
-// The child will have the animation classes
-
 :root {
   --fade-in-duration: 1s;
   --fade-easing: ease-out;
@@ -18,88 +15,65 @@
   transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
 }
 
-.fly-in-from-right-md {
-  //Make it the fly in from right if it is a medium screen, else just a fade in
-  @media (min-width: 768px) {
+.fly-in-from-right-sm {
+  @media (min-width: 576px) {
     transform: translateX(60vw) translateY(-20px);
     transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
   }
-  //if not a large screen, just fade in
-  @media (max-width: 767.98px) {
-    opacity: 0;
+}
+
+.fly-in-from-left-sm {
+  @media (min-width: 576px) {
+    transform: translateX(-60vw) translateY(-20px);
+    transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
+  }
+}
+
+.fly-in-from-right-md {
+  @media (min-width: 768px) {
+    transform: translateX(60vw) translateY(-20px);
     transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
   }
 }
 
 .fly-in-from-left-md {
-  //Make it the fly in from right if it is a medium screen, else just a fade in
-  //medium screen is 768px to 991.98px
   @media (min-width: 768px) {
     transform: translateX(-60vw) translateY(-20px);
-    transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
-  }
-  //if not a large screen, just fade in
-  @media (max-width: 767.98px) {
-    opacity: 0;
     transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
   }
 }
 
 .fly-in-from-right-lg {
-  //Make it the fly in from right if it is a large screen, else just a fade in
   @media (min-width: 992px) {
     transform: translateX(60vw) translateY(-20px);
-    transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
-  }
-  //if not a large screen, just fade in
-  @media (max-width: 991.98px) {
-    opacity: 0;
     transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
   }
 }
 
 .fly-in-from-left-lg {
-  //Make it the fly in from right if it is a large screen, else just a fade in
   @media (min-width: 992px) {
     transform: translateX(-60vw) translateY(-20px);
-    transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
-  }
-  //if not a large screen, just fade in
-  @media (max-width: 991.98px) {
-    opacity: 0;
     transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
   }
 }
 
 .fade-in {
   opacity: 0;
-  transition: opacity var(--fade-in-duration) var(--fade-easing), transform var(--fly-in-duration) var(--fly-in-easing);
+  transition: opacity var(--fade-in-duration) var(--fade-easing);
 }
 
-.viewed 
-  {
-  .fly-in-from-left {
-  transform: translateX(0) translateY(0);
-  }
-  .fly-in-from-right {
-  transform: translateX(0) translateY(0);
-  }
-  .fly-in-from-left-md {
-  transform: translateX(0) translateY(0);
-  }
-  .fly-in-from-right-md {
-  transform: translateX(0) translateY(0);
-  }
-  .fly-in-from-left-lg {
-  transform: translateX(0) translateY(0);
-  }
+.viewed {
+  .fly-in-from-left,
+  .fly-in-from-right,
+  .fly-in-from-left-sm,
+  .fly-in-from-right-sm,
+  .fly-in-from-left-md,
+  .fly-in-from-right-md,
+  .fly-in-from-left-lg,
   .fly-in-from-right-lg {
-  transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
   }
-  .fade-in  {
-  opacity: 1;
+  .fade-in {
+    opacity: 1;
+  }
 }
-}
-
-
-
